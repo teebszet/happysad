@@ -1,0 +1,3 @@
+To run perl unit tests:
+
+prove -rv APP_DIR/tests/server/perl/
