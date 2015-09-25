@@ -23,14 +23,13 @@ sub glad_sad_or_unknown {
     ## A text is happy if it includes at least 50% more happy words than sad words. 
     ## It is sad if it contains at least 50% more sad words than happy words. 
     ## Otherwise it is unknown.
-    my $total_count = $glad_count + $sad_count;
-    if ($total_count == 0) { # avoid div by 0
+    if ( $glad_count + $sad_count == 0 ) {
         return 'unknown';
     }
-    elsif ( ($glad_count / $sad_count) >= 1.5 ) {
+    elsif ( ($glad_count - $sad_count) >= ($sad_count * 0.5) ) {
         return 'happy'; 
     }
-    elsif ( (($sad_count - $glad_count) / $total_count) >= 0.5 ) {
+    elsif ( ($sad_count - $glad_count) >= ($glad_count * 0.5) ) {
         return 'sad'; 
     }
 
@@ -38,7 +37,7 @@ sub glad_sad_or_unknown {
 }
 
 sub _count_matches {
-    my $text = shift;
+    my $text = shift // '';
     my @match_these = @_;
 
     my $count = 0;
