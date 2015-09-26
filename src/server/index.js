@@ -3,7 +3,7 @@ import routes from './routes';
 
 const app = express();
 
-app.get('/api', routes.api);
+app.get('/happysad', routes.happysad.fn);
 
 app.listen(8083, function(err) {
   if (err)

@@ -4,22 +4,19 @@
  * contains routes for the express node server
  *
  * */
+
+import gladSadOrUnknown from './HappySadUnknown'
+
 var routes = {
-  '/api': {
+  happysad: {
     method: 'get',
     fn: function(req, res) {
+      console.log(gladSadOrUnknown(req.query.text));
       res.json({
-        shouts: [
-          'Hello World!',
-          'Using my routes.js',
-          'This is React and Webpack...',
-          'They make development fun',
-          'Another shout'
-        ] 
+        output: gladSadOrUnknown(req.query.text)
       });
     }
   }
-
 };
 
 module.exports = routes;
