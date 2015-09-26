@@ -4,7 +4,7 @@
 
 function gladSadOrUnknown(text) {
 
-    if (text === null)
+    if (!text)
       return 'unknown';
 
     var gladWords = [
