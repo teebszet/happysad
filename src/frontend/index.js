@@ -1,12 +1,13 @@
 import React from 'react';
 import 'whatwg-fetch';
+import './scss/index.scss';
 
 var Form = React.createClass({
   render: function() {
     return (
       <div>
         <label>{this.props.label}</label>
-        <input 
+        <textarea 
           type="text"
           onChange={this.props.onChange}
           value={this.props.text} />
@@ -28,8 +29,7 @@ var App = React.createClass({
   sendRequest: function() {
     fetch(`/happysad?text=${this.state.inputText}`)
       .then(resp => resp.json())
-      .then(json => this.setState({
-        happyOrSad: json.output,
+      .then(json => this.setState({ happyOrSad: json.output,
         needToSendRequest: false
       }));
   },
@@ -49,12 +49,12 @@ var App = React.createClass({
   render: function() {
     return (
       <div>
-        <h1>Is your Text Happy or Sad?</h1>
+        <h3>Go on, tell me how you're feeling.</h3>
         <Form 
-          label="Enter Text here: "
+          label=""
           text={this.state.inputText}
           onChange={this.onInputChange}/>
-        <h3>It is {this.state.happyOrSad}</h3>
+        <p>Wow, sounds like you are <span className={this.state.happyOrSad}>{this.state.happyOrSad}</span>.</p>
       </div>
     );
   }

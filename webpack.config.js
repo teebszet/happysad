@@ -28,7 +28,7 @@ var frontendConfig = assign({}, defaultConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Homework',
+      title: 'HappySad',
       filename: 'index.html',
       template: 'src/frontend/index.template.html',
       inject: true
