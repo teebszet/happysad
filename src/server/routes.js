@@ -1,19 +1,21 @@
 /*
- * routes.js
+ * src/server/routes.js
  *
- * contains routes for the express node server
+ * contains route functions for the express node server
  *
- * */
+ */
 
 import gladSadOrUnknown from './HappySadUnknown'
 
 var routes = {
   happysad: {
     method: 'get',
-    fn: function(req, res) {
-      res.json({
-        output: gladSadOrUnknown(req.query.text)
-      });
+    fn: (req, res) => {
+      if (req.query && typeof(req.query.text) !== undefined) {
+        res.json({
+          output: gladSadOrUnknown(req.query.text)
+        });
+      }
     }
   }
 };

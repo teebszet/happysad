@@ -1,4 +1,6 @@
-// HappySadUnknown.js
+/*
+ * src/server/HappySadUnknown.js
+ */
 
 'use strict';
 
@@ -35,7 +37,7 @@ function _countMatches(text, matchThese) {
     var count = 0;
     for (var word of matchThese) {
         var regexp = new RegExp(`\\b${word}\\b`, 'g');
-        var matches = text.match(regexp); // ensure anchors
+        var matches = text.match(regexp);
         if (matches)
           count += matches.length;
     }

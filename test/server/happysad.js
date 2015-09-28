@@ -1,14 +1,13 @@
 /*
  * test/server/happysad.js
- *
  */
 
 import { expect } from 'chai';
 import gladSadOrUnknown from '../../src/server/HappySadUnknown';
 
-describe('HappySadUnknown.js', () => {
+describe('server/HappySadUnknown.js', () => {
   describe('#gladSadOrUnknown', () => {
-    var tests = [
+    let tests = [
       // edge cases
       { text: '', expected: 'unknown', name: 'empty string' },
       { text: '-', expected: 'unknown', name: 'punctuation only' },
@@ -55,7 +54,7 @@ describe('HappySadUnknown.js', () => {
         name: 'provided test case'
       }
     ];
-    for (var t of tests) {
+    for (let t of tests) {
       it(t.name, () => {
         expect(gladSadOrUnknown(t.text))
           .to.equal(t.expected);
