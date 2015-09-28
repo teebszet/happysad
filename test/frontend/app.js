@@ -1,5 +1,5 @@
 /*
- * test/frontend/index.js
+ * test/frontend/app.js
  */
 
 import ReactTestUtils from 'react-test-utils';
