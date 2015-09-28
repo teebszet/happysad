@@ -1,11 +1,18 @@
+require('babel/register');
 import gulp from 'gulp';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
 import nodemon from 'nodemon';
 import path from 'path';
+import mocha from 'gulp-mocha'
 
 import configs from './webpack.config';
 const [ frontendConfig, backendConfig ] = configs;
+
+gulp.task('test', () => {
+  return gulp.src(path.join(__dirname, 'test/**/*.js'), {read: false})
+    .pipe(mocha());
+});
 
 gulp.task('dev', () => {
   new WebpackDevServer(webpack(frontendConfig), {
