@@ -4,12 +4,13 @@
 
 import ReactTestUtils from 'react-test-utils';
 import { expect } from 'chai';
-import { Form } from '../../src/frontend/app.js';
+//import { Form } from '../../src/frontend/app.js';
 
 describe('frontend/app.js', () => {
   describe('#Form', () => {
-    it('something', () => {
-      let React = ReactTestUtils.createShallowRenderer(); 
+    it('need to write these', () => {
+      //TODO write tests for react
+      true
     });
   });
 });
