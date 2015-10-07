@@ -2,8 +2,10 @@
  * src/server/index.js
  */
 
+require('babel/polyfill');
 import express from 'express';
 import routes from './routes';
+
 
 const app = express();
 
